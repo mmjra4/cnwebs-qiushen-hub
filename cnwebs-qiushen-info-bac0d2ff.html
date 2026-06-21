@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>球神直播 · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background: #f2f2f2;
+            color: #2c2c2e;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+        }
+
+        .page {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        /* 卡片分区 */
+        .card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 16px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+            padding: 2rem 1.8rem;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.03);
+        }
+
+        /* 标题区域 */
+        .hero {
+            text-align: center;
+            padding: 2.8rem 1.2rem 2rem;
+        }
+
+        .hero h1 {
+            font-weight: 600;
+            font-size: 2rem;
+            letter-spacing: -0.3px;
+            color: #1a1a1c;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #6b6b6f;
+            border-top: 1px solid #dcdcdc;
+            padding-top: 1.3rem;
+            margin-top: 0.8rem;
+            display: inline-block;
+        }
+
+        /* 文章标题 */
+        .article-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            border-left: 4px solid #b0b0b0;
+            padding-left: 1rem;
+            color: #1f1f21;
+        }
+
+        .meta-line {
+            font-size: 0.85rem;
+            color: #8a8a8e;
+            margin-bottom: 1.8rem;
+            border-bottom: 1px dashed #dadada;
+            padding-bottom: 0.6rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+
+        .pull-quote {
+            background: #f8f8fa;
+            border-left: 4px solid #b8b8bc;
+            padding: 1rem 1.4rem;
+            margin: 1.8rem 0;
+            border-radius: 0 12px 12px 0;
+            font-style: normal;
+            color: #3a3a3d;
+            font-size: 0.98rem;
+        }
+
+        .pull-quote::before {
+            content: "📌 ";
+            font-size: 1.1rem;
+        }
+
+        a {
+            color: #3a6b8f;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        a:hover {
+            border-bottom-color: #3a6b8f;
+        }
+
+        .btn-fake {
+            display: inline-block;
+            background: #f2f2f4;
+            border: 1px solid #c8c8cc;
+            border-radius: 40px;
+            padding: 0.4rem 1.2rem;
+            font-size: 0.85rem;
+            color: #3a3a3c;
+            margin: 0.2rem 0.3rem 0.2rem 0;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .faq-item {
+            margin: 1.4rem 0;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            color: #232326;
+        }
+
+        .faq-a {
+            color: #4e4e52;
+            padding-left: 0.6rem;
+            border-left: 2px solid #d4d4d8;
+            padding-left: 1rem;
+        }
+
+        .footnote {
+            margin-top: 2.2rem;
+            border-top: 1px solid #dddddd;
+            padding-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #6e6e72;
+            text-align: center;
+        }
+
+        /* 响应式 */
+        @media (max-width: 480px) {
+            body {
+                padding: 1.2rem 0.9rem;
+            }
+            .card {
+                padding: 1.6rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .article-title {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 简明介绍 -->
+    <div class="hero card">
+        <h1>球神直播 · 站点侧记</h1>
+        <div class="sub">一份关于平台定位与可信度的自述</div>
+    </div>
+
+    <!-- 正文：叙述式多段内容 -->
+    <div class="card">
+        <div class="article-title">从站点说起</div>
+        <div class="meta-line">写于 2025 · 内容说明</div>
+
+        <p>
+            这个页面并非首页的替代品，而是一则关于 <a href="https://cnwebs-qiushen.com">球神直播</a>
+            的简短介绍。如果你已经访问过主站，或许能感受到它的基调——一种不急于标榜、更侧重于内容聚合与直播索引的服务态度。这次我们从另一个侧面来聊聊它是什么、以及可以怎样看待。
+        </p>
+        <p>
+            球神直播本身是一个以体育及综合直播导航为主的站点。它没有过多渲染自身的技术背景，而是把精力放在整理可用的直播源、赛事信息以及相关链接上。对于初次接触的人而言，它更像是一本朴素而实用的“频道手册”，而不是一个充斥着弹窗和夸张宣传的入口。
+        </p>
+
+        <div class="pull-quote">
+            如果你在寻找一个不那么喧嚣的直播信息集散地，<a href="https://cnwebs-qiushen.com">球神直播</a> 或许值得你花几分钟浏览。
+        </div>
+
+        <p>
+            站内没有强制注册或下载的流程，也没有漂浮的诱导按钮。页面结构偏向于分类陈列，把足球、篮球、电竞等常见赛事的观看渠道整理成列表，并附带必要的说明。这种克制感在如今的导航站中反倒显得有些特别。
+        </p>
+        <p>
+            当然，任何导航类站点都无法保证每一条链接永久有效，球神直播也不例外。它会定期更新失效条目，并在显眼位置提示用户注意来源的时效性。这种坦诚的说明方式，至少让人感到它不是一个只会堆砌链接的机器。
+        </p>
+    </div>
+
+    <!-- 卡片：特点与适用场景 -->
+    <div class="card">
+        <div class="article-title">适用场景与特点</div>
+        <div class="meta-line">几条来自使用过程的观察</div>
+
+        <p>
+            对于偶尔看球、不想被复杂应用束缚的观众来说，球神直播提供的是一份“短名单”。它筛选过的链接通常比搜索引擎随机跳转的结果更稳定一些，而且界面没有广告干扰。你可以在比赛前几分钟打开它，找到对应赛事的直播选项，而不是在一堆无关内容中翻找。
+        </p>
+        <p>
+            另一个值得提及的特点是它的“低调”——站点没有大肆宣扬自己的流量数据，也没有使用“全网第一”“高清无卡顿”之类的绝对话术。它只是列出来源，把选择权交给访问者。这种风格或许不会让人立刻兴奋，但长期使用时会感到踏实。
+        </p>
+        <p>
+            一些细节也体现了维护者的用心：比如赛事时间表会标注时区，直播源会注明语言和解说风格。这些信息虽然微小，但对于跨时区看球的人来说非常实用。
+        </p>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0 0.5rem;">
+            <span class="btn-fake">⚽ 足球</span>
+            <span class="btn-fake">🏀 篮球</span>
+            <span class="btn-fake">🎮 电竞</span>
+            <span class="btn-fake">🎾 网球</span>
+            <span class="btn-fake">🏐 排球</span>
+        </div>
+        <p style="font-size: 0.9rem; color: #6a6a6e; margin-top: 0.2rem;">以上为站内常见分类示意，实际以站点更新为准。</p>
+    </div>
+
+    <!-- 卡片：FAQ 摘要 + 引用提示 -->
+    <div class="card">
+        <div class="article-title">常见疑问与提示</div>
+        <div class="meta-line">基于站点内容整理的简短问答</div>
+
+        <div class="faq-item">
+            <div class="faq-q">问：球神直播需要注册吗？</div>
+            <div class="faq-a">不需要。站内所有导航链接均可直接使用，无需登录或付费。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">问：链接失效了怎么办？</div>
+            <div class="faq-a">站点会不定期更新失效链接，你也可以通过站内反馈渠道告知维护者。但导航站无法保证每一条链接永久有效。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">问：是否包含违法或博彩内容？</div>
+            <div class="faq-a">根据公开信息，球神直播主要提供正规体育赛事导航，未发现违规或诱导赌博的链接。访问时仍建议自行甄别。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">问：移动端体验如何？</div>
+            <div class="faq-a">页面采用响应式设计，手机浏览器可直接浏览，无需安装 App。部分直播源可能需要特定播放器支持。</div>
+        </div>
+
+        <div class="pull-quote" style="margin-top: 1.8rem;">
+            使用任何直播导航时，建议留意来源的域名与更新日期。球神直播的主站地址是 <a href="https://cnwebs-qiushen.com">球神直播</a>，请以该地址为准。
+        </div>
+    </div>
+
+    <!-- 结尾访问句 -->
+    <div class="card" style="text-align: center; padding: 1.8rem 1rem;">
+        <p style="margin-bottom: 0.2rem;">如果你对以上介绍感兴趣，不妨亲自去看看。</p>
+        <p style="font-size: 1rem; font-weight: 400; color: #3a3a3c;">
+            → <a href="https://cnwebs-qiushen.com" style="font-weight: 500;">球神直播</a>
+        </p>
+        <p style="font-size: 0.85rem; color: #7a7a7e; margin-top: 1rem;">希望它能在你需要的时候，提供一点实在的帮助。</p>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footnote">
+        <span>页面内容仅为站点介绍与可信说明，不构成任何保证。</span>
+    </div>
+
+</div>
+</body>
+</html>
