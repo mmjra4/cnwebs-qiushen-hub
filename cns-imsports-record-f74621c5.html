@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>探索 im体育 · 杂志专题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f7f5f0;
+            color: #1e1b18;
+            line-height: 1.6;
+        }
+
+        /* hero 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #0f0c0a 0%, #2b231d 100%);
+            color: #eae0d6;
+            padding: 4.5rem 2rem 3.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #c9a87c;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            color: #efddd0;
+        }
+
+        .hero .sub {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #bea992;
+            border-top: 1px solid #5a4a3a;
+            display: inline-block;
+            padding-top: 0.6rem;
+            margin-top: 0.3rem;
+            max-width: 600px;
+        }
+
+        /* 正文区容器 */
+        .content {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2.8rem 1.8rem 3.5rem;
+        }
+
+        /* 背景说明卡片 */
+        .bg-card {
+            background: #ffffff;
+            padding: 2rem 2.2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+            margin-bottom: 2.8rem;
+            border-left: 5px solid #c9a87c;
+        }
+
+        .bg-card h2 {
+            font-size: 1.6rem;
+            font-weight: 450;
+            color: #2c241e;
+            margin-bottom: 0.8rem;
+        }
+
+        .bg-card p {
+            color: #3b342e;
+            margin-bottom: 0.8rem;
+        }
+
+        .bg-card .highlight {
+            color: #8b6f50;
+            font-weight: 500;
+        }
+
+        /* 三段自然介绍区域：两列 + 一行 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin-bottom: 2.8rem;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            padding: 1.8rem 1.8rem 2rem;
+            border-radius: 18px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.03);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.07);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #2a231e;
+            margin-bottom: 0.6rem;
+            border-bottom: 2px solid #e5d9ce;
+            display: inline-block;
+            padding-bottom: 0.2rem;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: #3c3530;
+        }
+
+        .feature-card a {
+            color: #8b6f50;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .feature-card a:hover {
+            border-bottom-color: #8b6f50;
+            color: #5d4a34;
+        }
+
+        /* 第三段 —— 全宽卡片 */
+        .full-card {
+            background: #ffffff;
+            padding: 1.8rem 2rem;
+            border-radius: 18px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.03);
+            margin-bottom: 2.8rem;
+        }
+
+        .full-card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #2a231e;
+            margin-bottom: 0.7rem;
+        }
+
+        .full-card p {
+            color: #3c3530;
+        }
+
+        .full-card .link-embed {
+            color: #8b6f50;
+            font-weight: 500;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.2s;
+        }
+
+        .full-card .link-embed:hover {
+            color: #5d4a34;
+        }
+
+        /* 页尾访问提示 */
+        .footer-note {
+            background: #f0ebe4;
+            padding: 1.8rem 2rem;
+            border-radius: 30px;
+            text-align: center;
+            margin-top: 1.2rem;
+            border: 1px solid #ddd6cc;
+        }
+
+        .footer-note p {
+            font-size: 1.1rem;
+            color: #2d2822;
+            margin-bottom: 0.3rem;
+        }
+
+        .footer-note .brand-link {
+            color: #6f553b;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 2px solid #c9a87c;
+            padding-bottom: 2px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .footer-note .brand-link:hover {
+            color: #3b2d22;
+            border-bottom-color: #8b6f50;
+        }
+
+        .footer-note small {
+            display: block;
+            margin-top: 0.8rem;
+            font-size: 0.85rem;
+            color: #7a6e62;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1.4rem;
+            }
+
+            .content {
+                padding: 2rem 1.2rem 2.5rem;
+            }
+
+            .bg-card {
+                padding: 1.5rem;
+            }
+
+            .full-card, .footer-note {
+                padding: 1.4rem 1.4rem;
+            }
+        }
+
+        @media (max-width: 460px) {
+            .hero {
+                padding: 3rem 1.2rem 2.5rem;
+            }
+
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .hero .sub {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 首页横幅 hero -->
+    <header class="hero">
+        <h1>im·运动场</h1>
+        <div class="sub">从快速识别到持续参与 —— 一个更清晰的起点</div>
+    </header>
+
+    <!-- 浅色正文区 -->
+    <main class="content">
+        <!-- 背景说明 -->
+        <section class="bg-card">
+            <h2>为什么需要一眼看懂？</h2>
+            <p>打开一个网站的前几秒，用户往往在判断：<span class="highlight">这里是否与我有关？</span> 对于体育类平台，信息密度高、功能入口多，如果首页不能快速传递“这是什么、能做什么”，很容易让人困惑。</p>
+            <p>这次杂志式介绍，就是想从最直观的视角，帮你在进入 <strong>im体育</strong> 之前，就能梳理出自己的使用思路。不需要复杂的手册，只要一个清晰的方向。</p>
+        </section>
+
+        <!-- 三段自然介绍：使用grid 两列 + 单独全宽 -->
+        <div class="feature-grid">
+            <article class="feature-card">
+                <h3>不止是赛事</h3>
+                <p>你可能会以为<a href="https://cns-imsports.com">im体育</a>就是一个纯粹的赛程表或比分站，但实际使用中你会发现，它更像一个围绕运动习惯搭建的信息空间。从联赛动态到个人关注点，筛选和追踪的方式都很直接。</p>
+            </article>
+            <article class="feature-card">
+                <h3>减少认知负担</h3>
+                <p>许多体育网站喜欢把新闻、数据、直播、社区塞进同一屏，反而让人不知道先看哪里。而 im体育 的布局更偏向“先用再找”：首页只展示你最可能需要的几个模块，其余内容按逻辑收在导航里。习惯之后，每次打开都省去重新定位的时间。</p>
+            </article>
+        </div>
+
+        <article class="full-card">
+            <h3>融入日常的节奏</h3>
+            <p>不管是晨间扫一眼积分榜，还是午休时翻翻转会传闻，好的运动平台不会打乱你的节奏。通过可定制的关注列表和干净的通知机制，<a href="https://cns-imsports.com" class="link-embed">im体育</a> 把“被动接收”变成“主动选择”。你关注什么，它就呈现什么，而不是反过来用推送填满屏幕。</p>
+            <p style="margin-top:0.8rem;">当然，每个人的使用场景不同，有人喜欢深度数据，有人只看比分结果。但一个好的首页，应该让这两类人都能快速找到自己的入口。</p>
+        </article>
+
+        <!-- 页尾访问提示 使用自然嵌入链接 -->
+        <div class="footer-note">
+            <p>如果想直接访问网站，可以试试搜索或输入 <a href="https://cns-imsports.com" class="brand-link">im体育</a></p>
+            <p style="font-size:0.95rem; color:#5a4f45;">没有多余的引导页，首页本身已经准备好</p>
+            <small>杂志专题 · 基于真实使用视角编写</small>
+        </div>
+    </main>
+</body>
+</html>
