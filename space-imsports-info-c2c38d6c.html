@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>空间体育 · 场景驱动</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f6fafd;
+            color: #1b2b38;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            color: #0e7b7b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.15s ease, background 0.15s ease;
+        }
+
+        a:hover {
+            color: #065a5a;
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* 顶部导航 */
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 1px solid #d9e6ed;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(4px);
+            background-color: rgba(255,255,255,0.92);
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px 8px;
+        }
+
+        .nav-logo {
+            font-weight: 600;
+            font-size: 1.25rem;
+            letter-spacing: 0.02em;
+            color: #0e4d5c;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #2a4a5a;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #0e7b7b;
+            text-decoration: none;
+        }
+
+        .nav-cta {
+            background-color: #0e7b7b;
+            color: white !important;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-bottom: none !important;
+        }
+
+        .nav-cta:hover {
+            background-color: #085f5f;
+            color: white !important;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            padding: 64px 0 56px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: #10414f;
+            margin-bottom: 14px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 720px;
+            margin: 0 auto 28px;
+            color: #2f4a5a;
+        }
+
+        .hero .intro-tag {
+            display: inline-block;
+            background-color: #daf0f0;
+            color: #0a5c5c;
+            padding: 6px 20px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 18px;
+        }
+
+        /* 网格卡片 三场景模块 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 36px 0 48px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 28px 24px 30px;
+            box-shadow: 0 4px 12px rgba(0,40,50,0.04);
+            border: 1px solid #dae8ee;
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 22px rgba(0,70,80,0.06);
+            transform: translateY(-3px);
+            border-color: #b6d2db;
+        }
+
+        .card-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background-color: #e0f0f3;
+            border-radius: 16px;
+            margin-bottom: 18px;
+            font-size: 1.7rem;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #10414f;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #2f4d5a;
+            margin-bottom: 6px;
+        }
+
+        .card .meta {
+            font-size: 0.85rem;
+            color: #587b86;
+            margin-top: 12px;
+            border-top: 1px solid #e2edf2;
+            padding-top: 12px;
+        }
+
+        /* 常见说明 / FAQ 摘要 */
+        .faq-section {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 40px 32px;
+            margin: 20px 0 48px;
+            border: 1px solid #d9e6ed;
+        }
+
+        .faq-section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #10414f;
+            margin-bottom: 24px;
+            letter-spacing: -0.01em;
+        }
+
+        .faq-item {
+            padding: 16px 0;
+            border-bottom: 1px solid #ebf2f6;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #1b3e4a;
+            margin-bottom: 4px;
+        }
+
+        .faq-item p {
+            font-size: 0.95rem;
+            color: #2c4e5a;
+        }
+
+        /* 提示/引用 */
+        .note-block {
+            background: #e8f3f5;
+            border-left: 4px solid #0e7b7b;
+            padding: 20px 24px;
+            border-radius: 12px;
+            margin: 24px 0 32px;
+            font-size: 0.95rem;
+            color: #13434f;
+        }
+
+        .note-block a {
+            font-weight: 600;
+        }
+
+        /* 底部 */
+        .footer {
+            margin-top: auto;
+            padding: 28px 0 20px;
+            background-color: #eef6fa;
+            border-top: 1px solid #d2e1e9;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #3e6573;
+        }
+
+        .footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer small {
+            opacity: 0.75;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .navbar .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links {
+                width: 100%;
+                justify-content: flex-start;
+                gap: 14px;
+                padding-top: 6px;
+            }
+            .faq-section {
+                padding: 28px 20px;
+            }
+            .feature-grid {
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="navbar">
+    <div class="container">
+        <span class="nav-logo">◈ 空间体育</span>
+        <ul class="nav-links">
+            <li><a href="#intro">主题</a></li>
+            <li><a href="#scenes">场景</a></li>
+            <li><a href="#faq">说明</a></li>
+            <li><a href="https://space-imsports.com" class="nav-cta">im体育</a></li>
+        </ul>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+
+        <!-- Hero 区域 + 核心介绍 -->
+        <section class="hero" id="intro">
+            <span class="intro-tag">运动场景 · 轻量化设计</span>
+            <h1>从「im体育」到空间表达</h1>
+            <p>
+                体育不仅是竞技，也是空间、节奏与协作的集合。我们围绕主题内容展开，将运动逻辑融入日常环境，提供可配置的场景参考与轻量方案。无论是个人训练、团队互动还是社区空间，<a href="https://space-imsports.com">im体育</a> 的理念都在探索更务实的运动表达。
+            </p>
+        </section>
+
+        <!-- 三个场景模块 网格卡片 -->
+        <section id="scenes">
+            <div class="feature-grid">
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>微场地 · 快速激活</h3>
+                    <p>利用小型空间部署高密度训练模块。通过可调节器械、地面标记与视觉引导，在有限范围完成力量、敏捷与协调练习。适合社区、办公室或户外角落。</p>
+                    <div class="meta">适配面积 20–60 m²</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔄</div>
+                    <h3>团体协作 · 动态路线</h3>
+                    <p>基于轮转与信号机制，设计 4–8 人小组的战术配合场景。以低门槛的跑动、传接与决策训练，提升团队默契与反应能力。场景可复用、可扩展。</p>
+                    <div class="meta">支持 3 种难度预设</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📋</div>
+                    <h3>数据反馈 · 轻量追踪</h3>
+                    <p>通过计时、计数与简易影像复核，记录运动过程中的关键节点。无需复杂设备，即可获得有效的参考数据，辅助调整动作与策略。</p>
+                    <div class="meta">兼容纸笔与基础应用</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 提示 / 引用块 嵌入链接自然 -->
+        <div class="note-block">
+            <strong>💡 场景适配核心</strong><br>
+            所有模块均以真实运动逻辑为基底。如需了解更系统的空间体育框架，可参考 <a href="https://space-imsports.com">im体育</a> 中的实践索引与案例摘要，内容持续迭代。
+        </div>
+
+        <!-- 常见说明 FAQ 摘要 -->
+        <section class="faq-section" id="faq">
+            <h2>常见说明 · 主题摘要</h2>
+
+            <div class="faq-item">
+                <strong>⚙️ 场景是否依赖特定器械？</strong>
+                <p>大部分基础模块可使用自重或常见物品替代，例如标志碟、弹力带、小球等。进阶方案会提供推荐器械清单，但始终保留低配置入口。</p>
+            </div>
+
+            <div class="faq-item">
+                <strong>🧩 如何融入已有训练计划？</strong>
+                <p>每个场景模块都可以作为独立单元插入热身、主体或恢复环节。建议根据运动频率与强度进行组合，单模块耗时约 8–20 分钟。</p>
+            </div>
+
+            <div class="faq-item">
+                <strong>📌 主题内容与 im体育 的关系？</strong>
+                <p>所有场景均源于对运动空间的观察与简化，与 <a href="https://space-imsports.com">im体育</a> 所倡导的实用、动态、可持续的运动理念一致。我们不夸大效果，只提供可验证的方法。</p>
+            </div>
+
+            <div class="faq-item">
+                <strong>📄 是否有扩展阅读或参考？</strong>
+                <p>后续会增加分场景的图解与调整指南。当前可浏览 <a href="https://space-imsports.com">im体育</a> 中的基础分类与简要说明，获取背景信息。</p>
+            </div>
+        </section>
+
+        <!-- 简短补充 呼应主题 -->
+        <p style="text-align: center; margin: 8px 0 32px; font-size: 0.95rem; color: #3f6a78;">
+            每一个场景都经过逻辑推演，并保留调整空间。运动不必复杂，但需要清晰的脉络。
+        </p>
+
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <span>空间体育 · 场景驱动 · 内容迭代中</span>
+        <small>本页为介绍摘要，具体方案参见 <a href="https://space-imsports.com">im体育</a></small>
+        <small style="opacity: 0.5;">© 2025 · 信息仅供参考</small>
+    </div>
+</footer>
+
+</body>
+</html>
